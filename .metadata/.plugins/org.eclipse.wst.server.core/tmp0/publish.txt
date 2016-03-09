@@ -1,0 +1,3 @@
+#Tomcat publish data
+#Wed Mar 09 21:40:41 CST 2016
+org.eclipse.jst.jee.server\:/binary\:E\:\\WorkSpace\\SpringMvcTest\\SpringMVC_First\\WebContent\\WEB-INF\\lib\\spring-web-3.2.0.RELEASE.jar=WEB-INF/lib/spring-web-3.2.0.RELEASE.jar
