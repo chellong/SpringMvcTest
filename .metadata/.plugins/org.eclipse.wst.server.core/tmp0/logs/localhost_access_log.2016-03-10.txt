@@ -1,0 +1,9 @@
+127.0.0.1 - - [10/Mar/2016:22:04:43 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [10/Mar/2016:22:04:44 +0800] "GET /SpringMVC_First/ HTTP/1.1" 200 322
+127.0.0.1 - - [10/Mar/2016:22:05:20 +0800] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [10/Mar/2016:22:05:21 +0800] "GET /SpringMVC_First/ HTTP/1.1" 200 322
+0:0:0:0:0:0:0:1 - - [10/Mar/2016:22:05:45 +0800] "GET /SpringMVC_First/queryItems.action HTTP/1.1" 500 8278
+0:0:0:0:0:0:0:1 - - [10/Mar/2016:22:05:46 +0800] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [10/Mar/2016:22:06:01 +0800] "GET /SpringMVC_First/queryItems.action HTTP/1.1" 500 8278
+0:0:0:0:0:0:0:1 - - [10/Mar/2016:22:06:46 +0800] "GET /SpringMVC_First/ HTTP/1.1" 200 322
+0:0:0:0:0:0:0:1 - - [10/Mar/2016:22:06:49 +0800] "GET /SpringMVC_First/queryItems.action HTTP/1.1" 500 8278

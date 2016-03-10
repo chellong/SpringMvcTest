@@ -1,0 +1,35 @@
+package com.example.ssm.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.HttpRequestHandler;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.ssm.po.Items;
+
+/**
+ * 表示控制器
+ * @author 北飞的候鸟
+ *
+ */
+@Controller
+public class ItemsController_3  {
+
+	public ModelAndView queryItems() throws Exception {
+		
+	
+	
+	
+	
+	
+	}
+	
+}

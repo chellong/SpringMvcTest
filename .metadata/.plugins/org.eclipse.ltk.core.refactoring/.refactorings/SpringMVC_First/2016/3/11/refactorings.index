@@ -1,3 +1,8 @@
 1457276647673	Move 'index.jsp' to 'WebContent'
 1457528906379	Move 'items.jsp' to 'items'
 1457528928691	Rename resource 'items.jsp'
+1457534651796	Move 'index.jsp' to 'WEB-INF'
+1457534684635	Move 'index.jsp' to 'WebContent'
+1457534893400	Delete element
+1457536409634	Copy compilation unit
+1457618003396	Copy compilation unit

@@ -28,7 +28,8 @@ public class ItemsController_1 implements Controller {
 		items_1.setCreatetime(new Date());
 		items_1.setDetail("渣想电脑");
 		items_1.setPrice(1);
-
+		itemsList.add(items_1);
+		
 		Items items_2 = new Items();
 		items_2.setId(2);
 		items_2.setName("渣想电脑");
