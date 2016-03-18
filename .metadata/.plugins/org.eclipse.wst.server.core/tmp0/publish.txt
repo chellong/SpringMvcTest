@@ -1,3 +1,4 @@
 #Tomcat publish data
-#Thu Mar 17 22:35:20 CST 2016
+#Fri Mar 18 15:15:34 CST 2016
+org.eclipse.jst.jee.server\:/binary\:E\:\\WorkSpace\\Stu_SpringMvc\\SpringMVC_First\\WebContent\\WEB-INF\\lib\\log4j-core-2.0-rc1.jar=WEB-INF/lib/log4j-core-2.0-rc1.jar
 org.eclipse.jst.jee.server\:/binary\:E\:\\WorkSpace\\Stu_SpringMvc\\SpringMVC_First\\WebContent\\WEB-INF\\lib\\spring-web-3.2.0.RELEASE.jar=WEB-INF/lib/spring-web-3.2.0.RELEASE.jar
