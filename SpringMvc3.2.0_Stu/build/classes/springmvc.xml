@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE xml> 
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,20 +9,16 @@
              http://www.springframework.org/schema/mvc  
              http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
-	<!-- 配置Handler -->
 	<bean id="ItemsController_1" name="/queryItems_1.action"
 		class="com.example.ssm.controller.ItemsController_1" />
 
 	<bean id="ItemsController_2" class="com.example.ssm.controller.ItemsController_2" />
 
-	<!-- <context:component-scan base-package="com.example.ssm.controller_1" 
-		/> -->
+	<context:component-scan base-package="com.example.ssm.controller_1" />
 
-	<!-- 处理器映射器 -->
 	<bean
 		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
-	<!-- 简单URL映射器,多个映射器可以共存 -->
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
@@ -34,27 +29,16 @@
 		</property>
 	</bean>
 
-	<!-- 处理器适配器 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
 
-	<!-- 另一个适配器,要求编写的handle实现HttprequestHandle -->
 	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />
 
 	<mvc:annotation-driven></mvc:annotation-driven>
 
-	<!-- 视图解析器 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
-	<!-- 注解映射器 -->
-	<!-- <bean -->
-	<!-- class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean> -->
-	<!-- 注解解析器 -->
-	<!-- <bean -->
-	<!-- class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean> -->
-	<!-- 使用注解 -->
-
 </beans>

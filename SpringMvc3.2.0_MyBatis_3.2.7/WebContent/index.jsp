@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath}/queryItems_1.action">查询商品</a>
+	<a href="${pageContext.request.contextPath}/items/queryItems.action">查询商品</a>
 </body>
 </html>

@@ -4,7 +4,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
-        <property name="context-root" value="SpringMVC_First"/>
         <property name="java-output-path" value="/SpringMVC_First/build/classes"/>
+        <property name="context-root" value="SpringMvc3.2.0_MyBatis_3.2.7"/>
     </wb-module>
 </project-modules>
