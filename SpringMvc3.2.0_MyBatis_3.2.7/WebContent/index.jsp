@@ -8,5 +8,7 @@
 </head>
 <body>
 	<a href="${pageContext.request.contextPath}/items/queryItems.action">查询商品</a>
+	<a href="${pageContext.request.contextPath}/items/editItemsQuery.action">批量修改</a>
+
 </body>
 </html>

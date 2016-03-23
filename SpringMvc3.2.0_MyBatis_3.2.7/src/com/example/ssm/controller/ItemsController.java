@@ -101,11 +101,39 @@ public class ItemsController {
 			
 		//调用service
 		
+		/*
+		 * 测试 显示数据
+		 */
 		for(Integer i : itemsId){
 			System.out.println(i);
 		}
 	
 		return "redirect:queryItems.action";
 	}
+	
+	@RequestMapping("/editItemsQuery")
+	public ModelAndView editItemsQuery(ItemsQueryVo itemsQueryVo) throws Exception {
+
+		List<ItemsCustom> itemsList = itemsService.findItemList(itemsQueryVo);
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("itemsList", itemsList);
+		modelAndView.setViewName("items/itemsListQuery");
+
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping("/editItemsAllSubmit")
+	public String editItemsAllSubmit(ItemsQueryVo itemsQueryVo) throws Exception {
+
+		for(ItemsCustom ic : itemsQueryVo.getItemsList() ){
+			System.out.println(ic.getName());
+		}
+
+		return "success";
+		
+	}
+
 	
 }
