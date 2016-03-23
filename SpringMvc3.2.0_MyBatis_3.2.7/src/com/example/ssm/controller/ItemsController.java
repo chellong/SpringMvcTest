@@ -32,7 +32,7 @@ public class ItemsController {
 	private ItemsService itemsService;
 
 	@RequestMapping("/queryItems")
-	public ModelAndView queryItems(HttpServletRequest request,ItemsQueryVo itemsQueryVo) throws Exception {
+	public ModelAndView queryItems(ItemsQueryVo itemsQueryVo) throws Exception {
 
 		List<ItemsCustom> itemsList = itemsService.findItemList(itemsQueryVo);
 
@@ -94,6 +94,18 @@ public class ItemsController {
 		 * 响应json
 		 */
 	
+	}
+	
+	@RequestMapping("deleteItems")
+	public String deleteItems(Integer[] itemsId) throws Exception {
+			
+		//调用service
+		
+		for(Integer i : itemsId){
+			System.out.println(i);
+		}
+	
+		return "redirect:queryItems.action";
 	}
 	
 }

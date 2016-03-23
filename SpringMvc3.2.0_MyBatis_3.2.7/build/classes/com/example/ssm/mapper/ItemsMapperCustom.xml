@@ -9,7 +9,7 @@
 	<sql id="query_items_where">
 		<!-- 动态sql -->
 		<if test="itemsCustom != null">
-			<if test="itemsCustom.name != null and itemsCustom.name = ''">
+			<if test="itemsCustom != null and itemsCustom.name = ''">
 				items.name like '${itemsCustom.name}%'
 			</if>
 		</if>
@@ -25,7 +25,6 @@
 		<where>
 			<include refid="query_items_where"/>
 		</where>
-
 	</select>
 
 
