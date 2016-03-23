@@ -9,6 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<form action="${pageContext.request.contextPath}/items/queryItems.action" method="post">
+		查询条件：<br/>
+		<table width="100%" border="1">
+			<tr>
+				<td><input type="text" name="itemsCustom.name"/></td>
+				<td><input type="submit" value="提交"/></td>
+			</tr> 
+		</table>
+	</form>
+	商品列表：<br/>
 <table width="100%" border="1">
 
 	<tr>

@@ -10,36 +10,38 @@
 	<title>itemsList.jsp</title>
 	</head>
 <body>
-	<form action="${pageContext.request.contextPath}/items/editItemsSumbit.action" id="itemForm" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="id" value="${itemsCustom.id}">
-		修改商品信息
-		<table>
-			<tr>
-				<td>商品名称</td>
-				<td><input type="text" name="name" value="${itemsCustom.name}"/></td>
-			</tr>
+	<center>
+		<form  action="${pageContext.request.contextPath}/items/editItemsSumbit.action" id="itemForm" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="${itemsCustom.id}">
+			修改商品信息
+			<table>
+				<tr>
+					<td>商品名称</td>
+					<td><input type="text" name="name" value="${itemsCustom.name}"/></td>
+				</tr>
+				
+				<tr>
+					<td>商品价格</td>
+					<td><input type="text" name="price" value="${itemsCustom.price}"/></td>
+				</tr>
+				
+				<tr>
+					<td>商品简介</td>
+					<td>
+						<textarea rows="3" cols="30" name="detail">
+							${itemsCustom.detail}
+						</textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="提交">
+					</td>
+				</tr>
 			
-			<tr>
-				<td>商品价格</td>
-				<td><input type="text" name="price" value="${itemsCustom.price}"/></td>
-			</tr>
-			
-			<tr>
-				<td>商品简介</td>
-				<td>
-					<textarea rows="3" cols="30" name="detail">
-						${itemsCustom.detail}
-					</textarea>
-				</td>
-			</tr>
-			
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" value="提交">
-				</td>
-			</tr>
-		
-		</table>
-	</form>
+			</table>
+		</form>
+	</center>
 </body>
 </html>

@@ -20,7 +20,7 @@ public class UserMapperTest {
 	@Test
 	public void testFindUserById() {
 		
-		UserMapper userMapper = (UserMapper) applicationContext.getBean("userMapper");
+		UserMapper userMapper = applicationContext.getBean(UserMapper.class);
 		try {
 			User user = userMapper.findUserById(1);
 			System.out.println(user);

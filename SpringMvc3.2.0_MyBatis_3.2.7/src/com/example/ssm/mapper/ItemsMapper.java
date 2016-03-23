@@ -1,14 +1,12 @@
 package com.example.ssm.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.example.ssm.po.Items;
 import com.example.ssm.po.ItemsExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface ItemsMapper {
-   
+ 
 	int countByExample(ItemsExample example);
 
     int deleteByExample(ItemsExample example);

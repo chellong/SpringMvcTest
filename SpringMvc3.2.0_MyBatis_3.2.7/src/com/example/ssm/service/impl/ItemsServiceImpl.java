@@ -1,4 +1,4 @@
-package com.example.ssm.servic.impl;
+package com.example.ssm.service.impl;
 
 import java.util.List;
 

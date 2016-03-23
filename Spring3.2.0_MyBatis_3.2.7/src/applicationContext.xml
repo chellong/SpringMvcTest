@@ -14,6 +14,7 @@
 
 	<!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:db.properties" />
+	
 	<!-- 数据源dbcp -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -27,24 +28,14 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 加载配置文件 -->
-		<property name="configLocation" value="SqlMapConfig.xml" />
+		<property name="configLocation" value="classpath:SqlMapConfig.xml" />
 		<!-- 数据源 -->
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<!-- 原始dao -->
-	<bean id="userDao" class="com.example.ssm.dao.UserDaoImpl">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.example.ssm.mapper"/>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
-
-	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-		<property name="mapperInterface" value="com.example.ssm.mapper.UserMapper" />
-	</bean>
-
-	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
-	<!-- <property name="basePackage" value="com.example.ssm.mapper"/> -->
-	<!-- <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/> -->
-	<!-- </bean> -->
-
 
 </beans>

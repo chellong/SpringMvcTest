@@ -12,8 +12,4 @@
 		<setting name="aggressiveLazyLoading" value="false" />
 	</settings>
 	
-	<typeAliases>
-		<package name="com.example.ssm.po"/>
-	</typeAliases>
-	
 </configuration> 

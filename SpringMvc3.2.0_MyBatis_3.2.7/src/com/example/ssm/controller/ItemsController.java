@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.ssm.po.ItemsCustom;
+import com.example.ssm.po.ItemsQueryVo;
 import com.example.ssm.service.ItemsService;
 
 @Controller
@@ -31,9 +32,9 @@ public class ItemsController {
 	private ItemsService itemsService;
 
 	@RequestMapping("/queryItems")
-	public ModelAndView queryItems() throws Exception {
+	public ModelAndView queryItems(HttpServletRequest request,ItemsQueryVo itemsQueryVo) throws Exception {
 
-		List<ItemsCustom> itemsList = itemsService.findItemList(null);
+		List<ItemsCustom> itemsList = itemsService.findItemList(itemsQueryVo);
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("itemsList", itemsList);
@@ -69,13 +70,15 @@ public class ItemsController {
 		 * 重定向
 		 */
 		
-		return "redirect:queryItems.action";
+		//return "redirect:queryItems.action";
 		
 		/*
 		 * 页面转发，
 		 */
 		
 		//return "foward:queryItems.action";
+		
+		return "success";
 	}
 
 	/**
