@@ -7,8 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<center>
+	<br/>
+	<br/>
+	<br/>
 	<a href="${pageContext.request.contextPath}/items/queryItems.action">查询商品</a>
+	<br/>
+	<br/>
+	<br/>
 	<a href="${pageContext.request.contextPath}/items/editItemsQuery.action">批量修改</a>
+</center>
 
 </body>
 </html>

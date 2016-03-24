@@ -11,10 +11,11 @@
 	</head>
 <body>
 	<center>
-		<form  action="${pageContext.request.contextPath}/items/editItemsSumbit.action" id="itemForm" method="post" enctype="multipart/form-data">
+		<form  action="${pageContext.request.contextPath}/items/editItemsSumbit.action" method="post" enctype="multipart/form-data">
+			
 			<input type="hidden" name="id" value="${itemsCustom.id}">
 			修改商品信息
-			<table>
+			<table width="100%" border="1">
 				<tr>
 					<td>商品名称</td>
 					<td><input type="text" name="name" value="${itemsCustom.name}"/></td>
@@ -23,6 +24,12 @@
 				<tr>
 					<td>商品价格</td>
 					<td><input type="text" name="price" value="${itemsCustom.price}"/></td>
+				</tr>
+				
+				<tr>
+					<td>生产日期</td>
+					<td>
+						<input type="text" name="createtime" value="<fmt:formatDate value="${itemsCustom.createtime}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate>"/></td>
 				</tr>
 				
 				<tr>

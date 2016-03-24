@@ -9,25 +9,51 @@
              http://www.springframework.org/schema/context/spring-context-3.2.xsd  
              http://www.springframework.org/schema/mvc  
              http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
-	
-	<context:component-scan base-package="com.example.ssm.controller"/>
 
-	<mvc:annotation-driven conversion-service="conversionService">
-	
+	<context:component-scan base-package="com.example.ssm.controller" />
+
+	<mvc:annotation-driven conversion-service="conversionService"
+		validator="validator">
+
 	</mvc:annotation-driven>
 
 	<!-- 视图解析器 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
-	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">  
-		<property name="converters">  
-  			  <list>  
-     		  	 <bean class="com.example.ssm.controller.converter.CustomDateConverter" />  
-   			 </list>  
-   		</property>
-   	</bean>
-   	
+
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.example.ssm.controller.converter.CustomDateConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- HIBERNATE校验器 -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<!-- 如果不加默认到 使用classpath下的 ValidationMessages.properties -->
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+
+	<!-- 国际化的消息资源文件（本系统中主要用于显示/错误消息定制） -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找 -->
+				<value>classpath:ValidationMessages</value>
+			</list>
+		</property>
+		<property name="useCodeAsDefaultMessage" value="false" />
+		<property name="fileEncodings" value="UTF-8" />
+		<property name="cacheSeconds" value="60" />
+	</bean>
+
+
 </beans>

@@ -14,16 +14,15 @@
 			document.itemsForm.action = "${pageContext.request.contextPath}/items/editItemsAllSubmit.action";			
 			document.itemsForm.submit();
 		}
-		
 	</script>
 </head>
 <body>
-
 	<form name="itemsForm" action="${pageContext.request.contextPath}/items/queryItems.action" method="post">
 	商品列表：<br/>
 <table width="100%" border="1">
 
 	<tr>
+		<td>商品编号</td>
 		<td>商品名称</td>
 		<td>商品价格</td>
 		<td>生产日期</td>
@@ -39,6 +38,9 @@
 	</tr>
 </c:forEach>
 </table>
+<br/>
+<br/>
+<br/>
 <center>
 	<input type="button" value="批量修改" onclick="editItemsQuery()"/>
 </center>

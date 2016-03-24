@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="refresh" 
+	content="3;URL=http://localhost:8080/SpringMvc3.2.0_MyBatis_3.2.7/items/queryItems.action">
 <title>Insert title here</title>
 </head>
 <body>
-success
+	<center>
+		<h1>
+			Success
+		</h1>
+	</center>
 </body>
 </html>

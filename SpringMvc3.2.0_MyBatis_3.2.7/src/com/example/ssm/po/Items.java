@@ -2,16 +2,27 @@ package com.example.ssm.po;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Items {
     
 	private Integer id;
 
+	/**
+	 * 校验名字
+	 */
+	@Size(min=1,max=30,message="{items.name.length.error}")
     private String name;
 
     private Float price;
 
     private String pic;
 
+    /**
+     * 校验非空
+     */
+    @NotNull(message="{}")
     private Date createtime;
 
     private String detail;

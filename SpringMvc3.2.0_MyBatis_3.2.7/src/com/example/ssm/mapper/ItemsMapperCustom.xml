@@ -2,7 +2,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-
+	 
 <mapper namespace="com.example.ssm.mapper.ItemsMapperCustom">
 
 	<!-- sql片段 -->
@@ -10,12 +10,11 @@
 		<!-- 动态sql -->
 		<if test="itemsCustom != null">
 			<if test="itemsCustom != null and itemsCustom.name = ''">
-				items.name like '${itemsCustom.name}%'
+				items.name LIKE '%${itemsCustom.name}%'
 			</if>
 		</if>
 		
 	</sql>
-
 
 	<!-- 商品列表查询 -->
 	<!-- 定义包装对象 -->

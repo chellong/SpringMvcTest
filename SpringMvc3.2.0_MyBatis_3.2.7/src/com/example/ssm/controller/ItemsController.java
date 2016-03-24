@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +37,14 @@ public class ItemsController {
 	@RequestMapping("/queryItems")
 	public ModelAndView queryItems(ItemsQueryVo itemsQueryVo) throws Exception {
 
+		/*
+		try{
+			System.out.println(itemsQueryVo.getItemsCustom().getName());
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		*/
+		
 		List<ItemsCustom> itemsList = itemsService.findItemList(itemsQueryVo);
 
 		ModelAndView modelAndView = new ModelAndView();
@@ -61,11 +72,25 @@ public class ItemsController {
 		return modelAndView;
 	}
 	
-	@RequestMapping("/editItemsSumbit")
-	public String editItemsSumbit(Integer id,ItemsCustom itemsCustom) throws Exception {
+	@RequestMapping(value="/editItemsSumbit",method={RequestMethod.POST})
+	public String editItemsSumbit(Integer id,@Validated ItemsCustom itemsCustom,BindingResult bindingResult) throws Exception {
+		
+		System.out.println(itemsCustom.getName()+"" + id);
 		
 		itemsService.updataItems(id, itemsCustom);
 		
+		if(bindingResult.hasErrors()){
+			/*
+			 * 输出错误信息
+			 */
+			List<ObjectError> allErrors = bindingResult.getAllErrors();
+			
+			for(ObjectError o : allErrors){
+				
+				System.out.println(o.getDefaultMessage());
+			
+			}
+		}
 		/*
 		 * 重定向
 		 */
@@ -128,7 +153,7 @@ public class ItemsController {
 	public String editItemsAllSubmit(ItemsQueryVo itemsQueryVo) throws Exception {
 
 		for(ItemsCustom ic : itemsQueryVo.getItemsList() ){
-			System.out.println(ic.getName());
+			System.out.println(ic.getCreatetime());
 		}
 
 		return "success";
