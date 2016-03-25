@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.ssm.controller.validation.ValidationGroup_1;
+import com.example.ssm.exception.CustomException;
 import com.example.ssm.po.ItemsCustom;
 import com.example.ssm.po.ItemsQueryVo;
 import com.example.ssm.service.ItemsService;
@@ -73,6 +74,13 @@ public class ItemsController {
 
 		ItemsCustom itemsCustom = itemsService.findItemById(items_id);
 
+		/*
+		 * 抛出异常
+		 */
+		if(itemsCustom == null){
+			throw new CustomException("修改的商品信息不存在");
+		}
+		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("itemsCustom", itemsCustom);
 		modelAndView.setViewName("items/editItems");
@@ -170,14 +178,12 @@ public class ItemsController {
 	
 	@RequestMapping("/editItemsAllSubmit")
 	public String editItemsAllSubmit(ItemsQueryVo itemsQueryVo) throws Exception {
-
+		
 		for(ItemsCustom itemsCustom : itemsQueryVo.getItemsList() ){
+		
 			itemsService.updataItems(itemsCustom.getId(),itemsCustom);
 		}
-
-		return "success";
 		
+		return "success";
 	}
-
-	
 }

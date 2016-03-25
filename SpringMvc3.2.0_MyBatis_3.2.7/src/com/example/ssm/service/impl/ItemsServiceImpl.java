@@ -32,12 +32,23 @@ public class ItemsServiceImpl implements ItemsService{
 		/*
 		 * 中间业务，用包装类
 		 */
-		ItemsCustom itemsCustom = new ItemsCustom();
+		ItemsCustom itemsCustom = null;
 		
 		/*
 		 * 拷贝
 		 */
-		BeanUtils.copyProperties(items, itemsCustom);
+		if(items != null){
+			itemsCustom = new ItemsCustom();
+			BeanUtils.copyProperties(items, itemsCustom);
+		}
+		
+		/*
+		 * 一般不再这里抛出异常
+		 * else{
+		 * 		throw new CustomException("查找的项目部存在");
+		 * }
+		 */
+		
 		return itemsCustom;
 	}
 
