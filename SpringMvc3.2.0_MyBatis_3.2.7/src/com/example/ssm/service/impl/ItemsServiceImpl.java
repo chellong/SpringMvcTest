@@ -54,9 +54,7 @@ public class ItemsServiceImpl implements ItemsService{
 		 * 根据id跟新数据，包括大数据类型，必须传入id；
 		 */
 		itemsCustom.setId(id);
-		Items items = itemsCustom;
-		int i = itemsMapper.updateByPrimaryKeyWithBLOBs(items);
-		System.out.println(i);
+		itemsMapper.updateByPrimaryKeyWithBLOBs(itemsCustom);
 		
 	}
 

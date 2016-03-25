@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.example.ssm.controller.validation.ValidationGroup_1;
+
 public class Items {
     
 	private Integer id;
@@ -12,7 +14,7 @@ public class Items {
 	/**
 	 * 校验名字
 	 */
-	@Size(min=1,max=30,message="{items.name.length.error}")
+	@Size(min=1,max=30,message="{items.name.length.error}",groups={ValidationGroup_1.class})
     private String name;
 
     private Float price;
@@ -22,7 +24,7 @@ public class Items {
     /**
      * 校验非空
      */
-    @NotNull(message="{}")
+    @NotNull(message="{items.createTime.isNull}")
     private Date createtime;
 
     private String detail;

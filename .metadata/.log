@@ -2003,3 +2003,254 @@ org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; 前言中不允�
 
 !ENTRY org.eclipse.ui 2 2 2016-03-24 21:43:42.055
 !MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.ws.jaxrs.ui, page: org.jboss.tools.ws.jaxrs.ui.preferencePages.JaxrsPreferencePage)
+
+!ENTRY org.eclipse.wst.server.core 4 0 2016-03-24 23:32:19.670
+!MESSAGE Server Tomcat v8.0 Server at localhost failed to start.
+!SESSION 2016-03-25 10:34:48.541 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160128-2000
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-25 10:35:14.965
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.osgi 2 0 2016-03-25 10:35:24.518
+!MESSAGE While loading class "org.eclipse.egit.ui.internal.ConfigurationChecker$1$1", thread "Thread[Worker-0,5,main]" timed out waiting (5107ms) for thread "Thread[main,6,main]" to finish starting bundle "org.eclipse.egit.ui_4.2.0.201601211800-r [269]". To avoid deadlock, thread "Thread[Worker-0,5,main]" is proceeding but "org.eclipse.egit.ui.internal.ConfigurationChecker$1$1" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; type="osgi.bundle"; version:Version="4.2.0.201601211800-r"; osgi.identity="org.eclipse.egit.ui"; singleton:="true" [id=269] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:324)
+	at org.eclipse.osgi.container.Module.start(Module.java:384)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:330)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:407)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:357)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:349)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.eclipse.egit.ui.internal.ConfigurationChecker$1.run(ConfigurationChecker.java:45)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface 2 0 2016-03-25 10:35:43.155
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-03-25 10:35:43.155
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(com.springsource.sts.roo.ui.shell.show,Open Roo Command Prompt,
+		Roo Command Prompt,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4ca50bb9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.jboss.tools.jmx.ui.navigate.refresh,Refresh,
+		Refreshes the tree,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@16817bad,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-25 10:36:25.555
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\北飞的候鸟'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 10001 2016-03-25 10:36:30.767
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.wst.jsdt.internal.ui.JavaUIException: Problems reading information from XML 'OpenTypeHistory.xml'
+	at org.eclipse.wst.jsdt.internal.corext.util.History.createException(History.java:65)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:251)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:161)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.<init>(OpenTypeHistory.java:190)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.getInstance(OpenTypeHistory.java:176)
+	at org.eclipse.wst.jsdt.internal.ui.JavaScriptPlugin.initializeAfterLoad(JavaScriptPlugin.java:357)
+	at org.eclipse.wst.jsdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:33)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; 前言中不允许有内容。
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:249)
+	... 6 more
+!SUBENTRY 1 org.eclipse.wst.jsdt.ui 4 4 2016-03-25 10:36:30.767
+!MESSAGE Problems reading information from XML 'OpenTypeHistory.xml'
+!STACK 0
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; 前言中不允许有内容。
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:249)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:161)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.<init>(OpenTypeHistory.java:190)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.getInstance(OpenTypeHistory.java:176)
+	at org.eclipse.wst.jsdt.internal.ui.JavaScriptPlugin.initializeAfterLoad(JavaScriptPlugin.java:357)
+	at org.eclipse.wst.jsdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:33)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.net 4 0 2016-03-25 10:36:40.639
+!MESSAGE WinHttp.GetProxyForUrl for pac failed with error '²»ÄÜÏÂÔشúÀí·þÎñÆ÷×Զ¯ÅäÖ' #12167.
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.865
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.common.jdt.debug.ui, page: org.jboss.tools.common.jdt.debug.ui.preferences.RemoteDebugPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.866
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.jst.js, page: org.jboss.tools.jst.js.bower.preferences.BowerPreferencesPage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.867
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.maven.sourcelookup.ui, page: org.jboss.tools.maven.sourcelookup.ui.preferences.SourceLookupPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.868
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.maven.ui, page: org.jboss.tools.maven.ui.preferences.ConfiguratorPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.868
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.maven.ui, page: org.jboss.tools.maven.ui.preferences.RemoteRepositoriesPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.869
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.openshift.express.ui, page: org.jboss.tools.openshift.express.ui.preferences.OpenShiftPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.870
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.project.examples, page: org.jboss.tools.project.examples.preferences.projectExamplesPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.870
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.runtime.ui, page: org.jboss.tools.runtime.preferences.RuntimePreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.871
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.usage, page: org.jboss.tools.usage.analytics.preferences.UsageAnalyticsPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 10:36:42.872
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.ws.jaxrs.ui, page: org.jboss.tools.ws.jaxrs.ui.preferencePages.JaxrsPreferencePage)
+
+!ENTRY org.eclipse.jst.jsp.core 4 4 2016-03-25 10:37:00.946
+!MESSAGE A workspace crash was detected. The previous session did not exit normally. Not using saved taglib indexes.
+!SESSION 2016-03-25 12:44:40.869 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160128-2000
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-25 12:45:38.509
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.osgi 2 0 2016-03-25 12:46:05.790
+!MESSAGE While loading class "org.eclipse.egit.ui.internal.ConfigurationChecker$1$1", thread "Thread[Worker-2,5,main]" timed out waiting (5091ms) for thread "Thread[main,6,main]" to finish starting bundle "org.eclipse.egit.ui_4.2.0.201601211800-r [269]". To avoid deadlock, thread "Thread[Worker-2,5,main]" is proceeding but "org.eclipse.egit.ui.internal.ConfigurationChecker$1$1" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; type="osgi.bundle"; version:Version="4.2.0.201601211800-r"; osgi.identity="org.eclipse.egit.ui"; singleton:="true" [id=269] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:324)
+	at org.eclipse.osgi.container.Module.start(Module.java:384)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:330)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:407)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:357)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:349)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.eclipse.egit.ui.internal.ConfigurationChecker$1.run(ConfigurationChecker.java:45)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface 2 0 2016-03-25 12:46:49.019
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-03-25 12:46:49.019
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(com.springsource.sts.roo.ui.shell.show,Open Roo Command Prompt,
+		Roo Command Prompt,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@738da6f2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.jboss.tools.jmx.ui.navigate.refresh,Refresh,
+		Refreshes the tree,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1b513ce8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-25 12:47:12.838
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\北飞的候鸟'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 10001 2016-03-25 12:47:22.204
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.wst.jsdt.internal.ui.JavaUIException: Problems reading information from XML 'OpenTypeHistory.xml'
+	at org.eclipse.wst.jsdt.internal.corext.util.History.createException(History.java:65)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:251)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:161)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.<init>(OpenTypeHistory.java:190)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.getInstance(OpenTypeHistory.java:176)
+	at org.eclipse.wst.jsdt.internal.ui.JavaScriptPlugin.initializeAfterLoad(JavaScriptPlugin.java:357)
+	at org.eclipse.wst.jsdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:33)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; 前言中不允许有内容。
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:249)
+	... 6 more
+!SUBENTRY 1 org.eclipse.wst.jsdt.ui 4 4 2016-03-25 12:47:22.204
+!MESSAGE Problems reading information from XML 'OpenTypeHistory.xml'
+!STACK 0
+org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; 前言中不允许有内容。
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:257)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:249)
+	at org.eclipse.wst.jsdt.internal.corext.util.History.load(History.java:161)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.<init>(OpenTypeHistory.java:190)
+	at org.eclipse.wst.jsdt.internal.corext.util.OpenTypeHistory.getInstance(OpenTypeHistory.java:176)
+	at org.eclipse.wst.jsdt.internal.ui.JavaScriptPlugin.initializeAfterLoad(JavaScriptPlugin.java:357)
+	at org.eclipse.wst.jsdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:33)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.net 4 0 2016-03-25 12:47:27.705
+!MESSAGE WinHttp.GetProxyForUrl for pac failed with error '²»ÄÜÏÂÔشúÀí·þÎñÆ÷×Զ¯ÅäÖ' #12167.
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.756
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.common.jdt.debug.ui, page: org.jboss.tools.common.jdt.debug.ui.preferences.RemoteDebugPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.757
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.jst.js, page: org.jboss.tools.jst.js.bower.preferences.BowerPreferencesPage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.757
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.maven.sourcelookup.ui, page: org.jboss.tools.maven.sourcelookup.ui.preferences.SourceLookupPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.758
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.maven.ui, page: org.jboss.tools.maven.ui.preferences.ConfiguratorPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.758
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.maven.ui, page: org.jboss.tools.maven.ui.preferences.RemoteRepositoriesPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.759
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.openshift.express.ui, page: org.jboss.tools.openshift.express.ui.preferences.OpenShiftPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.759
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.project.examples, page: org.jboss.tools.project.examples.preferences.projectExamplesPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.760
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.runtime.ui, page: org.jboss.tools.runtime.preferences.RuntimePreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.761
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.usage, page: org.jboss.tools.usage.analytics.preferences.UsageAnalyticsPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2016-03-25 12:47:31.761
+!MESSAGE Invalid preference category path: org.jboss.tools.common.model.ui.MainPreferencePage (bundle: org.jboss.tools.ws.jaxrs.ui, page: org.jboss.tools.ws.jaxrs.ui.preferencePages.JaxrsPreferencePage)
+
+!ENTRY org.eclipse.jst.jsp.core 4 4 2016-03-25 12:48:07.766
+!MESSAGE A workspace crash was detected. The previous session did not exit normally. Not using saved taglib indexes.

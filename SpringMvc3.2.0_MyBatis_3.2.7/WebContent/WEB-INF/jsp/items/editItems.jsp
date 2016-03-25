@@ -11,7 +11,10 @@
 	</head>
 <body>
 	<center>
-		<form  action="${pageContext.request.contextPath}/items/editItemsSumbit.action" method="post" enctype="multipart/form-data">
+		<c:forEach items="${allErrors}" var="error">
+			${error.defaultMessage}
+		</c:forEach>
+		<form  action="${pageContext.request.contextPath}/items/editItemsSumbit.action" method="post" >
 			
 			<input type="hidden" name="id" value="${itemsCustom.id}">
 			修改商品信息

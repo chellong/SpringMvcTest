@@ -26,8 +26,13 @@ public class ItemsMapperCustomTest {
 	
 		ItemsMapperCustom itemsMapperCustom = applicationContext.getBean(ItemsMapperCustom.class);
 		ItemsQueryVo itemsQueryVo = new ItemsQueryVo(); 
+		ItemsCustom itemsCustom = new ItemsCustom();
+		itemsCustom.setName("5");
+		itemsQueryVo.setItemsCustom(itemsCustom);
+		
 		try {
 			List<ItemsCustom> list = itemsMapperCustom.findItemList(itemsQueryVo);
+		
 			for(ItemsCustom ic : list){
 				System.out.println(ic.getName());
 			}

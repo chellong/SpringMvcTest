@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.ssm.controller.validation.ValidationGroup_1;
 import com.example.ssm.po.ItemsCustom;
 import com.example.ssm.po.ItemsQueryVo;
 import com.example.ssm.service.ItemsService;
@@ -37,14 +39,6 @@ public class ItemsController {
 	@RequestMapping("/queryItems")
 	public ModelAndView queryItems(ItemsQueryVo itemsQueryVo) throws Exception {
 
-		/*
-		try{
-			System.out.println(itemsQueryVo.getItemsCustom().getName());
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		*/
-		
 		List<ItemsCustom> itemsList = itemsService.findItemList(itemsQueryVo);
 
 		ModelAndView modelAndView = new ModelAndView();
@@ -56,7 +50,7 @@ public class ItemsController {
 
 	/**
 	 * 商品修改
-	 * 		参数绑定
+	 * 参数绑定
 	 * @return
 	 * @throws Exception
 	 */
@@ -72,12 +66,18 @@ public class ItemsController {
 		return modelAndView;
 	}
 	
+	/**
+	 * 修改提交
+	 * @param model
+	 * @param id
+	 * @param itemsCustom
+	 * @param bindingResult
+	 * @return
+	 * @throws Exception
+	 */
+	
 	@RequestMapping(value="/editItemsSumbit",method={RequestMethod.POST})
-	public String editItemsSumbit(Integer id,@Validated ItemsCustom itemsCustom,BindingResult bindingResult) throws Exception {
-		
-		System.out.println(itemsCustom.getName()+"" + id);
-		
-		itemsService.updataItems(id, itemsCustom);
+	public String editItemsSumbit(Model model,Integer id,@Validated(value={ValidationGroup_1.class}) ItemsCustom itemsCustom,BindingResult bindingResult) throws Exception {
 		
 		if(bindingResult.hasErrors()){
 			/*
@@ -85,22 +85,24 @@ public class ItemsController {
 			 */
 			List<ObjectError> allErrors = bindingResult.getAllErrors();
 			
-			for(ObjectError o : allErrors){
-				
-				System.out.println(o.getDefaultMessage());
+			/*
+			 * 返回到页面 
+			 */
+			model.addAttribute("allErrors", allErrors);
 			
-			}
+			return "items/editItems";
 		}
+		
+		itemsService.updataItems(id, itemsCustom);
+		
 		/*
 		 * 重定向
 		 */
-		
 		//return "redirect:queryItems.action";
 		
 		/*
 		 * 页面转发，
 		 */
-		
 		//return "foward:queryItems.action";
 		
 		return "success";
@@ -152,8 +154,8 @@ public class ItemsController {
 	@RequestMapping("/editItemsAllSubmit")
 	public String editItemsAllSubmit(ItemsQueryVo itemsQueryVo) throws Exception {
 
-		for(ItemsCustom ic : itemsQueryVo.getItemsList() ){
-			System.out.println(ic.getCreatetime());
+		for(ItemsCustom itemsCustom : itemsQueryVo.getItemsList() ){
+			itemsService.updataItems(itemsCustom.getId(),itemsCustom);
 		}
 
 		return "success";

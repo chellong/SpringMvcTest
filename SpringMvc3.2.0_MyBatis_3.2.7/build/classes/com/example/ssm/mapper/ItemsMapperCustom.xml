@@ -8,11 +8,11 @@
 	<!-- sql片段 -->
 	<sql id="query_items_where">
 		<!-- 动态sql -->
-		<if test="itemsCustom != null">
-			<if test="itemsCustom != null and itemsCustom.name = ''">
-				items.name LIKE '%${itemsCustom.name}%'
-			</if>
-		</if>
+		<if test="itemsCustom!=null">
+  	          <if test="itemsCustom.name!=null and itemsCustom.name!=''">
+  	          		items.name LIKE '%${itemsCustom.name}%'
+  	          </if>
+  	     </if>
 		
 	</sql>
 
@@ -25,8 +25,5 @@
 			<include refid="query_items_where"/>
 		</where>
 	</select>
-
-
-
 
 </mapper>
