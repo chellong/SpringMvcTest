@@ -44,6 +44,14 @@
 		 border: 0;
 	}
 	
+	select option{
+		 padding: 0px;
+		 margin: 0px;
+		 width: 100%;
+		 height:100%;
+		 border: 0;
+	}
+	
 	.div_center{
 		 border: blue 1px;
 	}
@@ -70,12 +78,21 @@
 		查询条件：<br />
 		<table width="100%" class="gridtable">
 			<tr>
+				<td>商品名称</td>
 				<td><input type="text" name="itemsCustom.name" /></td>
+				<td>商品类型</td>
+				<td>
+					<select name="itemTypes">
+						<c:forEach items="${itemTypes}" var="itemTypes">
+							<option value="${itemTypes.key}">${itemTypes.value}</option>
+						</c:forEach>
+					</select>
+				</td>				
 				<td><input type="button" value="提交" onclick="queryItems()" /></td>
 				<td><input type="button" value="批量删除" onclick="deleteItems()" /></td>
 			</tr>
 		</table>
-		商品列表：<br />
+		商品列表：<br/>
 		<table width="100%" class="gridtable">
 
 			<tr>

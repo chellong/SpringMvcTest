@@ -24,7 +24,7 @@ public class Items {
     /**
      * 校验非空
      */
-    @NotNull(message="{items.createTime.isNull}")
+    @NotNull(message="{items.createTime.isNull}",groups={ValidationGroup_1.class})
     private Date createtime;
 
     private String detail;

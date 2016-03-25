@@ -1,6 +1,8 @@
 package com.example.ssm.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +24,6 @@ import com.example.ssm.po.ItemsCustom;
 import com.example.ssm.po.ItemsQueryVo;
 import com.example.ssm.service.ItemsService;
 
-@Controller
 /**
  * 对url进行分类管理，
  * 	 最终的为根路径加子路径
@@ -30,11 +32,23 @@ import com.example.ssm.service.ItemsService;
  * * 窄化请求路径
  * @author 北飞的候鸟
  */
+@Controller
 @RequestMapping("/items")
 public class ItemsController {
 
 	@Autowired
 	private ItemsService itemsService;
+	
+	@ModelAttribute("itemTypes")
+	public Map<String,String> getItemTypes(){
+		
+		Map<String,String> itemTypes = new HashMap<String,String>();
+		itemTypes.put("101", "数码");
+		itemTypes.put("102", "电器");
+		itemTypes.put("103", "图书");
+		
+		return itemTypes;
+	}
 
 	@RequestMapping("/queryItems")
 	public ModelAndView queryItems(ItemsQueryVo itemsQueryVo) throws Exception {
@@ -77,7 +91,7 @@ public class ItemsController {
 	 */
 	
 	@RequestMapping(value="/editItemsSumbit",method={RequestMethod.POST})
-	public String editItemsSumbit(Model model,Integer id,@Validated(value={ValidationGroup_1.class}) ItemsCustom itemsCustom,BindingResult bindingResult) throws Exception {
+	public String editItemsSumbit(Model model,Integer id,@ModelAttribute("")@Validated(value={ValidationGroup_1.class}) ItemsCustom itemsCustom,BindingResult bindingResult) throws Exception {
 		
 		if(bindingResult.hasErrors()){
 			/*
@@ -89,6 +103,9 @@ public class ItemsController {
 			 * 返回到页面 
 			 */
 			model.addAttribute("allErrors", allErrors);
+			
+			model.addAttribute("itemsCustom","itemsCustom");
+			model.addAttribute("id",id);
 			
 			return "items/editItems";
 		}
