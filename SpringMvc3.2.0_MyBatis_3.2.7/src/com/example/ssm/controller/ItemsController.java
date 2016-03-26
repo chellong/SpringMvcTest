@@ -16,9 +16,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,6 +36,7 @@ import com.example.ssm.service.ItemsService;
  * 
  * @RequestMapping :特性
  * * 窄化请求路径
+ * 
  * @author 北飞的候鸟
  */
 @Controller
@@ -224,4 +227,26 @@ public class ItemsController {
 		
 		return "success";
 	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 * 
+	 * @PathVariable 表示将 /itemsView/{id} 中的数据传输到制定的
+	 * 名称当中
+	 * 
+	 */
+	@RequestMapping("/itemsView/{id}")
+	public @ResponseBody ItemsCustom itemsView(@PathVariable("id")Integer id) throws Exception{
+		
+		ItemsCustom itemsCustom = null;
+		if(id != null){
+			itemsCustom = itemsService.findItemById(id);
+		}
+		
+		return itemsCustom;
+	}
+	
 }
