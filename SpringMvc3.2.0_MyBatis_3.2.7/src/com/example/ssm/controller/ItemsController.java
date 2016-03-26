@@ -1,8 +1,10 @@
 package com.example.ssm.controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.ssm.controller.validation.ValidationGroup_1;
@@ -99,7 +102,11 @@ public class ItemsController {
 	 */
 	
 	@RequestMapping(value="/editItemsSumbit",method={RequestMethod.POST})
-	public String editItemsSumbit(Model model,Integer id,@ModelAttribute("")@Validated(value={ValidationGroup_1.class}) ItemsCustom itemsCustom,BindingResult bindingResult) throws Exception {
+	public String editItemsSumbit(Model model,
+			Integer id,@ModelAttribute("")
+			@Validated(value={ValidationGroup_1.class})ItemsCustom itemsCustom,
+			BindingResult bindingResult,
+			MultipartFile item_pic) throws Exception {
 		
 		if(bindingResult.hasErrors()){
 			/*
@@ -118,6 +125,37 @@ public class ItemsController {
 			return "items/editItems";
 		}
 		
+		/*
+		 * 原始图片名
+		 */
+		String originalFilename = item_pic.getOriginalFilename();
+		
+		if(item_pic != null && originalFilename != null && originalFilename.length() > 0){
+			/*
+			 * 存取的物理路径
+			 */
+			String pic_path = "D:\\pic\\";
+			/*
+			 * UUID file name 
+			 */
+			String newFileName = UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));
+			/*
+			 * 创建文件 
+			 */
+			File newFile = new File(pic_path + newFileName);
+			/*
+			 * 写入到硬盘
+			 */
+			item_pic.transferTo(newFile);
+			/*
+			 * 将图片的地址设置到itemsCustom中
+			 */
+			itemsCustom.setPic(newFileName);
+			
+		}
+		/*
+		 * 调用服务层存取
+		 */
 		itemsService.updataItems(id, itemsCustom);
 		
 		/*

@@ -40,7 +40,7 @@
 		 padding: 0px;
 		 margin: 0px;
 		 width: 100%;
-		 height:100%;
+		 height:18px;
 		 border: 0;
 	}
 	
@@ -53,7 +53,8 @@
 	}
 	
 	.div_center{
-		 border: blue 1px;
+		 border-style:solid;
+		 border-width:1px;
 	}
 </style>
 
@@ -73,9 +74,14 @@
 </head>
 <body>
 <div class="div_center">
-	<form name="itemsForm"
-		method="post">
-		查询条件：<br />
+	<form name="itemsForm" method="post">
+		<br />
+		<center>
+			<h1>
+				查询条件：
+			</h1>
+		</center>
+		<br />
 		<table width="100%" class="gridtable">
 			<tr>
 				<td>商品名称</td>
@@ -92,7 +98,13 @@
 				<td><input type="button" value="批量删除" onclick="deleteItems()" /></td>
 			</tr>
 		</table>
-		商品列表：<br/>
+		<br />
+		<center>
+			<h1>
+				商品列表：
+			</h1>
+		</center>
+		<br/>
 		<table width="100%" class="gridtable">
 
 			<tr>
@@ -116,8 +128,18 @@
 				</tr>
 			</c:forEach>
 		</table>
-
 	</form>
+	<br />
+	<center>
+		<br/>
+		<a href="${pageContext.request.contextPath}/items/editItemsQuery.action">批量修改</a>
+		<br/>
+		<br/>
+		<br/>
+		<a href="${pageContext.request.contextPath}/jsonTest.jsp">Json测试</a>
+		<br/>
+	</center>
+	<br />
 </div>
 </body>
 </html>

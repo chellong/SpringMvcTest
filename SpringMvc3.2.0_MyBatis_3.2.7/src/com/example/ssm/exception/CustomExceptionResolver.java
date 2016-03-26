@@ -32,6 +32,14 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
 			/*
 			 * 如果未知错误
 			 */
+			
+			//TODO
+			
+			/**
+			 * 打印错误堆栈
+			 */
+		
+			ex.printStackTrace();
 			customException = new CustomException("未知错误");
 		}
 		String message = "";

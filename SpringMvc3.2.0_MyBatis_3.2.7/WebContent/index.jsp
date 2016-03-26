@@ -4,19 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" 
+	content="1;URL=http://localhost:8080/SpringMvc3.2.0_MyBatis_3.2.7/items/queryItems.action">
 <title>Insert title here</title>
 </head>
 <body>
-<center>
 	<br/>
 	<br/>
 	<br/>
-	<a href="${pageContext.request.contextPath}/items/queryItems.action">查询商品</a>
-	<br/>
-	<br/>
-	<br/>
-	<a href="${pageContext.request.contextPath}/items/editItemsQuery.action">批量修改</a>
-</center>
-
+	<center>
+		<h1>
+			即将跳转
+		</h1>
+	</center>
 </body>
 </html>
