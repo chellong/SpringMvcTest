@@ -20,6 +20,27 @@
 		validator="validator">
 
 	</mvc:annotation-driven>
+	
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<!--登录认证 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.example.ssm.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>	
+		<!-- 第一个 -->
+		<mvc:interceptor>
+			<!-- /** 拦截所有URL，包括子URL -->
+			<mvc:mapping path="/**" />
+			<bean class="com.example.ssm.interceptor.HandlerInterceptor_1" />
+		</mvc:interceptor>
+		
+		<!-- 第二个 -->
+		<mvc:interceptor>
+		<mvc:mapping path="/**"/>
+			<bean class="com.example.ssm.interceptor.HandlerInterceptor_2"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- 视图解析器 -->
 	<bean

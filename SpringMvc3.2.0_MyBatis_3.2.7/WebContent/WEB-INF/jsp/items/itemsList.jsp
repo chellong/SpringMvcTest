@@ -74,6 +74,14 @@
 </head>
 <body>
 <div class="div_center">
+		<br />
+		<center>
+				当前用户：${username}
+				<c:if test="${username != null }">
+					<a href="${pageContext.request.contextPath}/logout.action">退出</a>
+				</c:if>
+		</center>
+		<br />
 	<form name="itemsForm" method="post">
 		<br />
 		<center>
